@@ -270,11 +270,11 @@ When trying to connect remotely to your Heroku database on an open network such 
 The link below will give you direct access to Eat-Da-Burger web application using your web browser via the Heroku web service. (NOTE: There will be a momentary delay when first accessing the Heroku servers.)
 
 
-* [ORM-BURGER](https://git.heroku.com/protected-plateau-07296.git)
+* [ORM-BURGER]( https://protected-plateau-07296.herokuapp.com/)
 
 *OR TRY THE FOLLOWING LINK
 
-https://git.heroku.com/protected-plateau-07296.git
+ https://protected-plateau-07296.herokuapp.com/
 
 ## Local Environment Setup
 To use Eat-Da-Burger web application application from your local environment, you must accomplish the following steps below:
