@@ -2,63 +2,260 @@
 <img src="https://github.com/GrissomErick/Eat-Da-Burger/blob/master/public/assets/img/eatdaburger.png?raw=true" alt="Project logo"></img>
 </div>
 
-# Eat-Da-Burger
+Table of Contents
+About
+Directory structure
+Minimum Requirements
+Bonus
+Development Strategy
+Built With
+Demo
+Getting Started
+Author
+Submission
+About
+Eat-Da-Burger
 UNC Coding Boot Camp - Eat-Da-Burger - Assignment #12 (Node, Express, Handlebars)
- <p></p>
- 
-**Project Description** - Eat-Da-Burger is a full-stack web application that ??.
 
-## Application Heroku Link
+Project Description - Eat-Da-Burger is a full-stack web application that ??. ##business-context
+
+Node Express Handlebars
+Overview
+In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+
+Read This
+When trying to connect remotely to your Heroku database on an open network such as a coffee shop, library, or even your University WiFi, it will be blocked. If you are experiencing a Heroku connection error, this could be why.
+
+Important
+This assignment must be deployed. Be sure to utilize the MYSQL Heroku Deployment Guide in order to deploy your assignment.
+Before You Begin
+Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+
+Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
+
+Your app will store every burger in a database, whether devoured or not.
+
+Check out this video of the app for a run-through of how it works.
+
+Commits
+Having an active and healthy commit history on GitHub is important for your future job search. It is also extremely important for making sure your work is saved in your repository. If something breaks, committing often ensures you are able to go back to a working version of your code.
+
+Committing often is a signal to employers that you are actively working on your code and learning.
+
+We use the mantra “commit early and often.” This means that when you write code that works, add it and commit it!
+
+Numerous commits allow you to see how your app is progressing and give you a point to revert to if anything goes wrong.
+
+Be clear and descriptive in your commit messaging.
+
+When writing a commit message, avoid vague messages like "fixed." Be descriptive so that you and anyone else looking at your repository knows what happened with each commit.
+We would like you to have well over 200 commits by graduation, so commit early and often!
+
+Submission on BCS
+This assignment must be deployed. * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+Instructions
+App Setup
+Create a GitHub repo called burger and clone it to your computer.
+
+Make a package.json file by running npm init from the command line.
+
+Install the Express npm package: npm install express.
+
+Create a server.js file.
+
+Install the Handlebars npm package: npm install express-handlebars.
+
+Install MySQL npm package: npm install mysql.
+
+Require the following npm packages inside of the server.js file:
+
+express
+DB Setup
+Inside your burger directory, create a folder named db.
+
+In the db folder, create a file named schema.sql. Write SQL queries this file that do the following:
+
+Create the burgers_db.
+Switch to or use the burgers_db.
+Create a burgers table with these fields:
+id: an auto incrementing int that serves as the primary key.
+burger_name: a string.
+devoured: a boolean.
+Still in the db folder, create a seeds.sql file. In this file, write insert queries to populate the burgers table with at least three entries.
+
+Run the schema.sql and seeds.sql files into the mysql server from the command line
+
+Now you're going to run these SQL files.
+
+Make sure you're in the db folder of your app.
+
+Start MySQL command line tool and login: mysql -u root -p.
+
+With the mysql> command line tool running, enter the command source schema.sql. This will run your schema file and all of the queries in it -- in other words, you'll be creating your database.
+
+Now insert the entries you defined in seeds.sql by running the file: source seeds.sql.
+
+Close out of the MySQL command line tool: exit.
+
+Config Setup
+Inside your burger directory, create a folder named config.
+
+Create a connection.js file inside config directory.
+
+Inside the connection.js file, setup the code to connect Node to MySQL.
+
+Export the connection.
+
+Create an orm.js file inside config directory.
+
+Import (require) connection.js into orm.js
+
+In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
+
+selectAll()
+insertOne()
+updateOne()
+Export the ORM object in module.exports.
+
+Model setup
+Inside your burger directory, create a folder named models.
+
+In models, make a burger.js file.
+
+Inside burger.js, import orm.js into burger.js
+
+Also inside burger.js, create the code that will call the ORM functions using burger specific input for the ORM.
+
+Export at the end of the burger.js file.
+
+Controller setup
+Inside your burger directory, create a folder named controllers.
+
+In controllers, create the burgers_controller.js file.
+
+Inside the burgers_controller.js file, import the following:
+
+Express
+burger.js
+Create the router for the app, and export the router at the end of your file.
+
+View setup
+Inside your burger directory, create a folder named views.
+
+Create the index.handlebars file inside views directory.
+
+Create the layouts directory inside views directory.
+
+Create the main.handlebars file inside layouts directory.
+
+Setup the main.handlebars file so it's able to be used by Handlebars.
+
+Setup the index.handlebars to have the template that Handlebars can render onto.
+
+Create a button in index.handlebars that will submit the user input into the database.
+
+Directory structure
+All the recommended files and directories from the steps above should look like the following structure:
+
+.
+├── config
+│   ├── connection.js-> here we are providing the details to connect the database.
+│   └── orm.js->This is the object relational mapping area.
+│ 
+├── controllers
+│   └── burgers_controller.js-> This part is the controller for all the files here
+│
+├── db
+│   ├── schema.sql->Here we are setting the database 
+│   └── seeds.sql-> we are inserting the values to tables
+│
+├── models
+│   └── burger.js-> It handes inserting deleating and selecting function.
+│ 
+├── node_modules
+│ 
+├── package.json
+│
+├── public
+│   └── assets
+│       ├── css
+│       │   └── burger_style.css->this is styling area for our application
+│       └── img
+│           └── burger.png-> contains the images
+│   
+│
+├── server.js-> It connect all the files together for the proper work
+│
+└── views
+    ├── index.handlebars->this is handlebar parts
+    └── layouts
+        └── main.handlebars-> this handlebars handles the body session
+Reminder: Submission on BCS
+Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+Minimum Requirements
+Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Heroku and adding a README.md are required for this homework. In addition, add this homework to your portfolio, more information can be found below.
+
+Hosting on Heroku
+Now that we have a backend to our applications, we use Heroku for hosting. Please note that while Heroku is free, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+
+Please see Heroku’s Account Verification Information for more details.
+
+Create a README.md
+Add a README.md to your repository describing the project. Here are some resources for creating your README.md. Here are some resources to help you along the way:
+
+About READMEs
+
+Mastering Markdown
+
+Add To Your Portfolio
+After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+
+One More Thing
+This is a really tough homework assignment, but we want you to put in your best effort to finish it.
+
+If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
+
+Reminder
+When trying to connect remotely to your Heroku database on an open network such as a coffee shop, library, or even your University WiFi, it will be blocked. If you are experiencing a Heroku connection error, this could be why.
+
+Good Luck!
+
+Application Heroku Link
 The link below will give you direct access to Eat-Da-Burger web application using your web browser via the Heroku web service. (NOTE: There will be a momentary delay when first accessing the Heroku servers.)
 
-<!-- Heroku References: https://evening-ridge-94356.herokuapp.com/ | https://git.heroku.com/evening-ridge-94356.git -->
-* [Eat-Da-Burger](https://uncbc-eatdaburger.herokuapp.com/)
+ORM-BURGER
+*OR TRY THE FOLLOWING LINK
 
-## Local Environment Setup
+https://git.heroku.com/protected-plateau-07296.git
+
+Local Environment Setup
 To use Eat-Da-Burger web application application from your local environment, you must accomplish the following steps below:
 
-**Step 1 - Clone my repo using the command line below.**
-```
-git clone https://github.com/Dhanya_krishnan2/Eat-Da-Burger.git
-```
-**Step 2 - Change directory to the cloned repo folder.**
-```
-cd Eat-Da-Burger
-```
-**Step 3 - Install all required NPM packages.**
-```
+Step 1 - Clone my repo using the command line below.
+
+git clone https://github.com/Dhanya-krishnan2/ORM-burger
+Step 2 - Change directory to the cloned repo folder.
+
+cd ORM-burger
+Step 3 - Install all required NPM packages.
+
 npm install
-```
-**Step 4 - Start the application server using the command line below**
-```
+Step 4 - Start the application server using the command line below
+
 node server.js
-```
-
-## Technology used
-- node.js - [https://nodejs.org/en/](https://nodejs.org/en/)
-- heroku-cli NPM Package - [https://www.npmjs.com/package/heroku-cli](https://www.npmjs.com/package/heroku-cli)
-- body-parser NPM Package - [https://www.npmjs.com/package/body-parser](https://www.npmjs.com/package/body-parser)
-- express NPM Package - [https://www.npmjs.com/package/express](https://www.npmjs.com/package/express)
-- path NPM Package - [https://www.npmjs.com/package/path](https://www.npmjs.com/package/path)
-
-<!--
-- node.js - [https://nodejs.org/en/](https://nodejs.org/en/)
-- mysql NPM Package - [https://www.npmjs.com/package/mysql](https://www.npmjs.com/package/mysql)
-- inquirer NPM Package - [https://www.npmjs.com/package/inquirer](https://www.npmjs.com/package/inquirer)
-- cli-table NPM Package - [https://www.npmjs.com/package/cli-table](https://www.npmjs.com/package/cli-table)
-- heroku-cli NPM Package - [https://www.npmjs.com/package/heroku-cli](https://www.npmjs.com/package/heroku-cli)
-- express NPM Package - [https://www.npmjs.com/package/express](https://www.npmjs.com/package/express)
-- path - [https://www.npmjs.com/package/path](https://www.npmjs.com/package/path)
-- body-parser NPM Package - [https://www.npmjs.com/package/body-parser](https://www.npmjs.com/package/body-parser)
+Technology used
+node.js - https://nodejs.org/en/
+heroku-cli NPM Package - https://www.npmjs.com/package/heroku-cli
+body-parser NPM Package - https://www.npmjs.com/package/body-parser
+express NPM Package - https://www.npmjs.com/package/express
+path NPM Package - https://www.npmjs.com/package/path
 -->
 
-## Built With
-
-* VS Code - [https://code.visualstudio.com/](https://code.visualstudio.com/)
-* Git Tools - [https://git-scm.com/download](https://git-scm.com/download)
-* Live Markdown Editor - [https://jbt.github.io/markdown-editor/](https://jbt.github.io/markdown-editor/)
-
-## Author
-
-* **
-***DHANYA KUNHIKRISHNAN** - *Node/Express/Handlebars* - [DHANYA KUNHIKRISHNAN Eat-Da-Burger Repo](https://github.com/Dhanya_krishna2/Eat-Da-Burger)
+Built With
+VS Code - https://code.visualstudio.com/
+Git Tools - https://git-scm.com/download
+Live Markdown Editor - https://jbt.github.io/markdown-editor/
+Author
+Dhanya Kunhikrishnan - Node/Express/Handlebars - Dhanya Kunhikrishnan Eat-Da-Burger Repo
