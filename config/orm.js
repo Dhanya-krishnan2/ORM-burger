@@ -11,6 +11,7 @@ function printQuestionMarks(num) {
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
+// we are using helper function here to ensure that we dont reapeat ourself that is "DRY codes".
 function objToSql(ob) {
     var arr = [];
     // loop through the keys and push the key/value as a string int arr
@@ -22,7 +23,7 @@ function objToSql(ob) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+            // e.g. {name: 'Dhanya kunhikrishnan'} => ["name='Dhanya kunhikrishnan'"]
             // e.g. {sleepy: true} => ["sleepy=true"]
             arr.push(key + "=" + value);
         }
@@ -91,7 +92,7 @@ var orm = {
             if (err) {
                 throw err
             }
-            cb(result);
+            cb(result);//  this is the call back which return the results
         });
     }
 };
