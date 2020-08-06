@@ -1,6 +1,8 @@
+
 <div align="center">
-<img src="https://github.com/GrissomErick/Eat-Da-Burger/blob/master/public/assets/img/eatdaburger.png?raw=true" alt="Project logo"></img>
+<img src="https://github.com/Dhanya-krishnan2/ORM-burger/blob/master/images/eatdaburger.png?raw=true" alt="Project logo"></img>
 </div>
+
 
 1. [About](#about)
 1. [Directory structure](#Directory-structure)
